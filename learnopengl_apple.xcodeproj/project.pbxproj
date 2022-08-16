@@ -13,6 +13,11 @@
 		2EF2906528ABC001009810FA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF2906328ABC001009810FA /* Main.storyboard */; };
 		2EF2906728ABC004009810FA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2EF2906628ABC004009810FA /* Assets.xcassets */; };
 		2EF2906A28ABC004009810FA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2EF2906828ABC004009810FA /* LaunchScreen.storyboard */; };
+		2EF2907228ABC079009810FA /* GLView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2907128ABC079009810FA /* GLView.swift */; };
+		2EF2907628ABC11E009810FA /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2907428ABC11E009810FA /* Shader.cpp */; };
+		2EF2907928ABC2F4009810FA /* OpenGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2907728ABC2F4009810FA /* OpenGL.cpp */; };
+		2EF2907D28ABC903009810FA /* 3.0.shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 2EF2907C28ABC903009810FA /* 3.0.shader.vs */; };
+		2EF2907F28ABC91B009810FA /* 3.0.shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 2EF2907E28ABC91B009810FA /* 3.0.shader.fs */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +29,15 @@
 		2EF2906628ABC004009810FA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2EF2906928ABC004009810FA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2EF2906B28ABC004009810FA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2EF2907128ABC079009810FA /* GLView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GLView.swift; sourceTree = "<group>"; };
+		2EF2907328ABC11D009810FA /* learnopengl_apple-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "learnopengl_apple-Bridging-Header.h"; sourceTree = "<group>"; };
+		2EF2907428ABC11E009810FA /* Shader.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		2EF2907528ABC11E009810FA /* Shader.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Shader.hpp; sourceTree = "<group>"; };
+		2EF2907728ABC2F4009810FA /* OpenGL.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OpenGL.cpp; sourceTree = "<group>"; };
+		2EF2907828ABC2F4009810FA /* OpenGL.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = OpenGL.hpp; sourceTree = "<group>"; };
+		2EF2907B28ABC6A6009810FA /* OpenGLClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLClass.h; sourceTree = "<group>"; };
+		2EF2907C28ABC903009810FA /* 3.0.shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = 3.0.shader.vs; sourceTree = "<group>"; };
+		2EF2907E28ABC91B009810FA /* 3.0.shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = 3.0.shader.fs; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +77,15 @@
 				2EF2906628ABC004009810FA /* Assets.xcassets */,
 				2EF2906828ABC004009810FA /* LaunchScreen.storyboard */,
 				2EF2906B28ABC004009810FA /* Info.plist */,
+				2EF2907128ABC079009810FA /* GLView.swift */,
+				2EF2907C28ABC903009810FA /* 3.0.shader.vs */,
+				2EF2907E28ABC91B009810FA /* 3.0.shader.fs */,
+				2EF2907428ABC11E009810FA /* Shader.cpp */,
+				2EF2907528ABC11E009810FA /* Shader.hpp */,
+				2EF2907328ABC11D009810FA /* learnopengl_apple-Bridging-Header.h */,
+				2EF2907728ABC2F4009810FA /* OpenGL.cpp */,
+				2EF2907828ABC2F4009810FA /* OpenGL.hpp */,
+				2EF2907B28ABC6A6009810FA /* OpenGLClass.h */,
 			);
 			path = learnopengl_apple;
 			sourceTree = "<group>";
@@ -99,6 +122,7 @@
 				TargetAttributes = {
 					2EF2905928ABC001009810FA = {
 						CreatedOnToolsVersion = 13.4.1;
+						LastSwiftMigration = 1340;
 					};
 				};
 			};
@@ -126,7 +150,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EF2906A28ABC004009810FA /* LaunchScreen.storyboard in Resources */,
+				2EF2907D28ABC903009810FA /* 3.0.shader.vs in Resources */,
 				2EF2906728ABC004009810FA /* Assets.xcassets in Resources */,
+				2EF2907F28ABC91B009810FA /* 3.0.shader.fs in Resources */,
 				2EF2906528ABC001009810FA /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -139,8 +165,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				2EF2906228ABC001009810FA /* ViewController.swift in Sources */,
+				2EF2907228ABC079009810FA /* GLView.swift in Sources */,
 				2EF2905E28ABC001009810FA /* AppDelegate.swift in Sources */,
 				2EF2906028ABC001009810FA /* SceneDelegate.swift in Sources */,
+				2EF2907928ABC2F4009810FA /* OpenGL.cpp in Sources */,
+				2EF2907628ABC11E009810FA /* Shader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +314,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SRW54YFJJ3;
@@ -295,6 +325,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -303,6 +334,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "github.onelcat.io.learnopengl-apple";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "learnopengl_apple/learnopengl_apple-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -313,6 +346,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SRW54YFJJ3;
@@ -323,6 +357,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -331,6 +366,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "github.onelcat.io.learnopengl-apple";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "learnopengl_apple/learnopengl_apple-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

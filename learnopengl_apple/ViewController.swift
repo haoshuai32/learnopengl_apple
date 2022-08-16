@@ -11,6 +11,8 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let glView = GLView(frame: UIScreen.main.bounds)
+        self.view.addSubview(glView)
         // Do any additional setup after loading the view.
     }
 
