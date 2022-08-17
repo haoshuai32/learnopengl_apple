@@ -75,8 +75,6 @@ class GLView: UIView,GLKViewDelegate {
     override func didMoveToWindow() {
         NSLog("%@ ==> %@", #function, self.window ?? "nil")
         
-
-        
         guard let openGLClass = self.openGLView else {
             return
         }

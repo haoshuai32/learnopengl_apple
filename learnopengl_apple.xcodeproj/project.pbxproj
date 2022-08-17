@@ -18,6 +18,10 @@
 		2EF2907928ABC2F4009810FA /* OpenGL.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2907728ABC2F4009810FA /* OpenGL.cpp */; };
 		2EF2907D28ABC903009810FA /* 3.0.shader.vs in Resources */ = {isa = PBXBuildFile; fileRef = 2EF2907C28ABC903009810FA /* 3.0.shader.vs */; };
 		2EF2907F28ABC91B009810FA /* 3.0.shader.fs in Resources */ = {isa = PBXBuildFile; fileRef = 2EF2907E28ABC91B009810FA /* 3.0.shader.fs */; };
+		2EF2908128AC8715009810FA /* stb in Resources */ = {isa = PBXBuildFile; fileRef = 2EF2908028AC8715009810FA /* stb */; };
+		2EF2908728AC89C3009810FA /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2908528AC89C3009810FA /* Texture.cpp */; };
+		2EF2908A28AC8A53009810FA /* TextureImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2908828AC8A53009810FA /* TextureImage.cpp */; };
+		2EF2908B28AC9068009810FA /* stb in Sources */ = {isa = PBXBuildFile; fileRef = 2EF2908028AC8715009810FA /* stb */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +42,11 @@
 		2EF2907B28ABC6A6009810FA /* OpenGLClass.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = OpenGLClass.h; sourceTree = "<group>"; };
 		2EF2907C28ABC903009810FA /* 3.0.shader.vs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = 3.0.shader.vs; sourceTree = "<group>"; };
 		2EF2907E28ABC91B009810FA /* 3.0.shader.fs */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.glsl; path = 3.0.shader.fs; sourceTree = "<group>"; };
+		2EF2908028AC8715009810FA /* stb */ = {isa = PBXFileReference; lastKnownFileType = folder; path = stb; sourceTree = "<group>"; };
+		2EF2908528AC89C3009810FA /* Texture.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		2EF2908628AC89C3009810FA /* Texture.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = Texture.hpp; sourceTree = "<group>"; };
+		2EF2908828AC8A53009810FA /* TextureImage.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextureImage.cpp; sourceTree = "<group>"; };
+		2EF2908928AC8A53009810FA /* TextureImage.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = TextureImage.hpp; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +79,7 @@
 		2EF2905C28ABC001009810FA /* learnopengl_apple */ = {
 			isa = PBXGroup;
 			children = (
+				2EF2908028AC8715009810FA /* stb */,
 				2EF2905D28ABC001009810FA /* AppDelegate.swift */,
 				2EF2905F28ABC001009810FA /* SceneDelegate.swift */,
 				2EF2906128ABC001009810FA /* ViewController.swift */,
@@ -86,6 +96,10 @@
 				2EF2907728ABC2F4009810FA /* OpenGL.cpp */,
 				2EF2907828ABC2F4009810FA /* OpenGL.hpp */,
 				2EF2907B28ABC6A6009810FA /* OpenGLClass.h */,
+				2EF2908528AC89C3009810FA /* Texture.cpp */,
+				2EF2908628AC89C3009810FA /* Texture.hpp */,
+				2EF2908828AC8A53009810FA /* TextureImage.cpp */,
+				2EF2908928AC8A53009810FA /* TextureImage.hpp */,
 			);
 			path = learnopengl_apple;
 			sourceTree = "<group>";
@@ -149,6 +163,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF2908128AC8715009810FA /* stb in Resources */,
 				2EF2906A28ABC004009810FA /* LaunchScreen.storyboard in Resources */,
 				2EF2907D28ABC903009810FA /* 3.0.shader.vs in Resources */,
 				2EF2906728ABC004009810FA /* Assets.xcassets in Resources */,
@@ -164,11 +179,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2EF2908B28AC9068009810FA /* stb in Sources */,
 				2EF2906228ABC001009810FA /* ViewController.swift in Sources */,
 				2EF2907228ABC079009810FA /* GLView.swift in Sources */,
 				2EF2905E28ABC001009810FA /* AppDelegate.swift in Sources */,
+				2EF2908A28AC8A53009810FA /* TextureImage.cpp in Sources */,
 				2EF2906028ABC001009810FA /* SceneDelegate.swift in Sources */,
 				2EF2907928ABC2F4009810FA /* OpenGL.cpp in Sources */,
+				2EF2908728AC89C3009810FA /* Texture.cpp in Sources */,
 				2EF2907628ABC11E009810FA /* Shader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,6 +17,7 @@ OpenGL::~OpenGL() {
     delete shader;
 }
 
+// set up vertex data (and buffer(s)) and configure vertex attributes
 void OpenGL::vertex(const float *vertices, int vertices_count) {
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
@@ -39,8 +40,15 @@ void OpenGL::vertex(const float *vertices, int vertices_count) {
     
 }
 
+void OpenGL::textureImage(const char* texturePath1,
+                          const char* texturePath2) {
+    texture1 = new TextureImage(texturePath1);
+    texture2 = new TextureImage(texturePath2);
+}
+
 void OpenGL::update() {
-    
+    texture1->active_bind(GL_TEXTURE0);
+    texture1->active_bind(GL_TEXTURE1);
 }
 
 void OpenGL::render() {
