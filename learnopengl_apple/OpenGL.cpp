@@ -18,22 +18,32 @@ OpenGL::~OpenGL() {
 }
 
 // set up vertex data (and buffer(s)) and configure vertex attributes
-void OpenGL::vertex(const float *vertices, int vertices_count) {
+void OpenGL::vertex(const float *vertices, int vertices_count,
+                    const int *indices, int indices_count) {
+    
     glGenVertexArrays(1, &VAO);
     glGenBuffers(1, &VBO);
+    glGenBuffers(1, &EBO);
+    
     // bind the Vertex Array Object first, then bind and set vertex buffer(s), and then configure vertex attributes(s).
     glBindVertexArray(VAO);
 
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     glBufferData(GL_ARRAY_BUFFER, sizeof(float) * vertices_count, vertices, GL_STATIC_DRAW);
 
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(int) * indices_count, indices, GL_STATIC_DRAW);
+    
     // position attribute
-    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+    glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
     glEnableVertexAttribArray(0);
     // color attribute
-    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+    glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
     glEnableVertexAttribArray(1);
-
+    // texture coord attribute
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+    glEnableVertexAttribArray(2);
+    
         // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
         // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
 //         glBindVertexArray(0);
@@ -63,6 +73,7 @@ void OpenGL::delete_vertex() {
     // ------------------------------------------------------------------------
     glDeleteVertexArrays(1, &VAO);
     glDeleteBuffers(1, &VBO);
+    glDeleteBuffers(1, &EBO);
 }
 
 #include "OpenGLClass.h"
@@ -78,9 +89,16 @@ void OpenGL_deinit(OpenGLClass objc) {
 }
 
 void OpenGL_vertex(OpenGLClass objc,
-                   const float *vertices,int vertices_count) {
+                   const float *vertices,int vertices_count,
+                   const int *indices, int indices_count) {
     OpenGLPtr(ptr, objc);
-    ptr->vertex(vertices, vertices_count);
+    ptr->vertex(vertices, vertices_count, indices,indices_count);
+}
+
+void OpenGL_texture_image(OpenGLClass objc,
+                          const char* texturePath1, const char* texturePath2) {
+    OpenGLPtr(ptr, objc);
+    ptr->textureImage(texturePath1, texturePath2);
 }
 
 void OpenGL_update(OpenGLClass objc) {

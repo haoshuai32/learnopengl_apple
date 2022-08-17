@@ -16,8 +16,10 @@ extern "C" {
 OpenGLClass OpenGL_init(const char* vertexPath, const char* fragmentPath);
 void OpenGL_deinit(OpenGLClass objc);
 void OpenGL_vertex(OpenGLClass objc,
-                   const float *vertices,int vertices_count);
-
+                   const float *vertices,int vertices_count,
+                   const int *indices, int indices_count);
+void OpenGL_texture_image(OpenGLClass objc,
+                          const char* texturePath1, const char* texturePath2);
 void OpenGL_update(OpenGLClass objc);
 void OpenGL_render(OpenGLClass objc);
 void OpenGL_clear_color();

@@ -19,10 +19,12 @@ private:
     TextureImage *texture2;
     unsigned int VBO = 0;
     unsigned int VAO = 0;
+    unsigned int EBO = 0;
 public:
     OpenGL(const char* vertexPath, const char* fragmentPath);
     ~OpenGL();
-    void vertex(const float *vertices,int vertices_count);
+    void vertex(const float *vertices, int vertices_count,
+                const int *indices, int indices_count);
     void textureImage(const char* texturePath1,
                       const char* texturePath2);
     void update();

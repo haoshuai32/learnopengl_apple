@@ -80,13 +80,27 @@ class GLView: UIView,GLKViewDelegate {
         }
         
         let vertices:[Float] = [
-            // positions         // colors
-             0.5, -0.5, 0.0,  1.0, 0.0, 0.0,   // bottom right
-            -0.5, -0.5, 0.0,  0.0, 1.0, 0.0,   // bottom left
-             0.0,  0.5, 0.0,  0.0, 0.0, 1.0    // top
+            // positions          // colors           // texture coords
+             0.5,  0.5, 0.0,   1.0, 0.0, 0.0,   1.0, 1.0, // top right
+             0.5, -0.5, 0.0,   0.0, 1.0, 0.0,   1.0, 0.0, // bottom right
+            -0.5, -0.5, 0.0,   0.0, 0.0, 1.0,   0.0, 0.0, // bottom left
+            -0.5,  0.5, 0.0,   1.0, 1.0, 0.0,   0.0, 1.0  // top left
         ]
-        let ptr = UnsafePointer<Float>(vertices)
-        OpenGL_vertex(openGLClass, vertices, Int32(vertices.count))
+        
+        let indices:[Int32] = [
+            0, 1, 3, // first triangle
+            1, 2, 3  // second triangle
+        ]
+        
+        let ptr0 = UnsafePointer<Float>(vertices)
+        let ptr1 = UnsafePointer<Int32>(indices)
+        OpenGL_vertex(openGLClass, ptr0, Int32(vertices.count), ptr1, Int32(indices.count))
+
+        if
+            let texturePath1 = Bundle.main.path(forResource: "container.jpg", ofType: nil),
+            let texturePath2 = Bundle.main.path(forResource: "awesomeface.png", ofType: nil) {
+            OpenGL_texture_image(openGLClass, texturePath1, texturePath2)
+        }
 
         self.displayLink = CADisplayLink(target: self, selector: #selector(displayLink(_:)))
         self.displayLink?.frameInterval = 1
