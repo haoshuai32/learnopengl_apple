@@ -9,12 +9,15 @@
 #include <OpenGLES/ES3/gl.h>
 #include <OpenGLES/ES3/glext.h>
 
-OpenGL::OpenGL(const char* vertexPath, const char* fragmentPath) {
+OpenGL::OpenGL(const char* vertexPath,
+               const char* fragmentPath) {
     shader = new Shader(vertexPath,fragmentPath);
 }
 
 OpenGL::~OpenGL() {
     delete shader;
+    delete texture1;
+    delete texture2;
 }
 
 // set up vertex data (and buffer(s)) and configure vertex attributes
@@ -44,28 +47,35 @@ void OpenGL::vertex(const float *vertices, int vertices_count,
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
     glEnableVertexAttribArray(2);
     
-        // You can unbind the VAO afterwards so other VAO calls won't accidentally modify this VAO, but this rarely happens. Modifying other
-        // VAOs requires a call to glBindVertexArray anyways so we generally don't unbind VAOs (nor VBOs) when it's not directly necessary.
-//         glBindVertexArray(0);
-    
+    glBindVertexArray(0);
 }
 
 void OpenGL::textureImage(const char* texturePath1,
                           const char* texturePath2) {
     texture1 = new TextureImage(texturePath1);
     texture2 = new TextureImage(texturePath2);
+    
+    // tell opengl for each sampler to which texture unit it belongs to (only has to be done once)
+    // -------------------------------------------------------------------------------------------
+    shader->use(); // don't forget to activate/use the shader before setting uniforms!
+    // either set it manually like so:
+//    glUniform1i(glGetUniformLocation(shader->ID, "texture1"), 0);
+    // or set it via the texture class
+    shader->setInt("texture1", 0);
+    shader->setInt("texture2", 1);
 }
 
 void OpenGL::update() {
     texture1->active_bind(GL_TEXTURE0);
-    texture1->active_bind(GL_TEXTURE1);
+    texture2->active_bind(GL_TEXTURE1);
 }
 
 void OpenGL::render() {
     // render the triangle
     shader->use();
     glBindVertexArray(VAO);
-    glDrawArrays(GL_TRIANGLES, 0, 3);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+    glBindVertexArray(0);
 }
 
 void OpenGL::delete_vertex() {
@@ -116,6 +126,6 @@ void OpenGL_delete_vertex(OpenGLClass objc) {
 }
 
 void OpenGL_clear_color(){
-    glClearColor(0.2f, 0.3f, 1.0f, 1.0);
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT);
 }

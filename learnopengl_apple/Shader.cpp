@@ -58,14 +58,14 @@ Shader::Shader(const char* vertexPath, const char* fragmentPath) {
     // vertex shader
     vertex = glCreateShader(GL_VERTEX_SHADER);
     glShaderSource(vertex, 1, &vShaderCode, NULL);
-    printf("vertex program:\n%s\n", vShaderCode);
+//    printf("vertex program:\n%s\n", vShaderCode);
     glCompileShader(vertex);
     checkCompileErrors(vertex, "VERTEX");
     
     // fragment Shader
     fragment = glCreateShader(GL_FRAGMENT_SHADER);
     glShaderSource(fragment, 1, &fShaderCode, NULL);
-    printf("fragment program:\n%s\n", fShaderCode);
+//    printf("fragment program:\n%s\n", fShaderCode);
     glCompileShader(fragment);
     checkCompileErrors(vertex, "FRAGMENT");
     

@@ -56,7 +56,7 @@ class GLView: UIView,GLKViewDelegate {
         guard let openGLClass = self.openGLView else {
             return
         }
-        NSLog("%@", #function)
+//        NSLog("%@", #function)
         OpenGL_clear_color()
         OpenGL_update(openGLClass)
         OpenGL_render(openGLClass)

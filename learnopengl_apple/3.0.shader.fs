@@ -1,8 +1,8 @@
 #version 300 core
-out vec4 FragColor;
+out mediump vec4 FragColor;
 
-in lowp vec3 ourColor;
-in lowp vec2 TexCoord;
+in mediump vec3 ourColor;
+in mediump vec2 TexCoord;
 
 // texture samplers
 uniform sampler2D texture1;
